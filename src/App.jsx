@@ -28,7 +28,6 @@ function App() {
         )
           .then(response => response.json())
           .then(json => {
-            console.log(json)
             setCountry(json.country_code)
             setCity(json.city_name)
             setData(json.data)
