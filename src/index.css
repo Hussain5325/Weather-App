@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap");
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: hsl(215deg, 50%, 23%);
+  color: hsl(105deg, 55%, 96%);
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+main {
+  text-align: center;
+  padding: 0 30px;
+}
+main h1 {
+  font-size: 50px;
+}
+main h3 {
+  font-size: 30px;
+}
+
+#main-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.container {
+  padding: 20px;
+  background-color: hsl(203deg, 39%, 44%);
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: hsl(215deg, 50%, 23%);
+}
+::-webkit-scrollbar-thumb {
+  background-color: hsl(203deg, 39%, 44%);
+  border-radius: 20px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(203deg, 39%, 30%);
+}
+
+@media (max-width: 970px) {
+  #main-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 742px) {
+  #main-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 504px) {
+  main {
+    padding: 10px;
+  }
+  main h1 {
+    font-size: 30px;
+  }
+  main h3 {
+    font-size: 16px;
+  }
+  #main-section {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
