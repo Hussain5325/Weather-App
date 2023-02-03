@@ -7,6 +7,7 @@ function Component(props) {
         src={`https://www.weatherbit.io/static/img/icons/${props.iconCode}.png`}
         alt='icon'
         className='icons'
+        loading='lazy'
       />
       <div className='insided_container'>
         <p className='heading title'>
