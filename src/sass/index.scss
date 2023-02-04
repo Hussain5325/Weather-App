@@ -103,6 +103,13 @@ main {
     }
   }
 
+  .error-contianer {
+    img {
+      width: 252px;
+      height: 162px;
+    }
+  }
+
   #main-section {
     grid-template-columns: repeat(1, 1fr);
   }
