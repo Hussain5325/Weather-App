@@ -64,7 +64,7 @@ function App() {
       </h3>
       {Error && (
         <div className='error-contianer'>
-          <img src='/giphy.gif' alt='Gif' />
+          <img src='/giphy.gif' alt='Gif' loading='lazy' />
           <h3>Please Turn On Your Location.</h3>
         </div>
       )}
