@@ -1,8 +1,23 @@
 import { useState, useEffect } from 'react'
 
 function Component(props) {
+  function getDayOfWeek(dateString) {
+    const daysOfWeek = [
+      'Sunday',
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+    ]
+    const date = new Date(dateString)
+    return daysOfWeek[date.getDay()]
+  }
+
   return (
     <section className='container'>
+      <h3>{getDayOfWeek(props.date)}</h3>
       <img
         src={`https://www.weatherbit.io/static/img/icons/${props.iconCode}.png`}
         alt='icon'
@@ -12,9 +27,6 @@ function Component(props) {
       <div className='insided_container'>
         <p className='heading title'>
           Status: <b>{props.title}</b>
-        </p>
-        <p className='heading date'>
-          Date: <b>{props.date}</b>
         </p>
         <p className='heading max_temp'>
           Max Temp: <b>{props.max_temp}°C</b>

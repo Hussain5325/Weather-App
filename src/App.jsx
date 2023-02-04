@@ -4,20 +4,25 @@ import { nanoid } from 'nanoid'
 
 function App() {
   const [Data, setData] = useState([])
-  const [City, setCity] = useState()
-  const [Country, setCountry] = useState()
+  const [Location, setLocation] = useState([])
+  const [Error, setError] = useState(false)
 
   useEffect(() => {
     const getLocation = new Promise((resovle, reject) => {
       if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
-          resovle({
-            lat: position.coords.latitude,
-            lon: position.coords.longitude,
-          })
-        })
+        navigator.geolocation.getCurrentPosition(
+          position => {
+            resovle({
+              lat: position.coords.latitude,
+              lon: position.coords.longitude,
+            })
+          },
+          function () {
+            return setError(true)
+          }
+        )
       } else {
-        reject('Your Browser Does Not Support Geo Location API.')
+        reject(console.error('Your Browser Does Not Support Geo Location API.'))
       }
     })
     getLocation
@@ -28,9 +33,8 @@ function App() {
         )
           .then(response => response.json())
           .then(json => {
-            setCountry(json.country_code)
-            setCity(json.city_name)
             setData(json.data)
+            setLocation(json)
           })
           .catch(error => console.error(error))
       })
@@ -56,8 +60,13 @@ function App() {
     <main>
       <h1>Weather App</h1>
       <h3>
-        Country: {Country} / {City}
+        Location: {Location.country_code} / {Location.city_name}
       </h3>
+      {Error && (
+        <div className='error-contianer'>
+          <h3>Please Turn On Your Location.</h3>
+        </div>
+      )}
       <section id='main-section'>{newElement}</section>
     </main>
   )

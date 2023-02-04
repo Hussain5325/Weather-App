@@ -6,14 +6,16 @@
   box-sizing: border-box;
 }
 
-$bg-color: (
+$Dark-bg-color: (
   'body': hsl(215, 50%, 23%),
   'box': hsl(203, 39%, 44%),
   'text': hsl(105, 55%, 96%),
+  'scroll-hover': hsl(203, 39%, 30%),
+  'error': #222,
 );
 
 @function color($color) {
-  @return map-get($bg-color, $color);
+  @return map-get($Dark-bg-color, $color);
 }
 
 body {
@@ -21,6 +23,7 @@ body {
   background-color: color('body');
   color: color('text');
   font-family: 'Noto Sans JP', sans-serif;
+  padding-bottom: 50px;
 }
 
 main {
@@ -35,6 +38,17 @@ main {
   }
 }
 
+#current-Weather {
+  text-align: start;
+}
+
+.error-contianer {
+  height: 500px;
+  background-color: color('error');
+  display: grid;
+  place-content: center;
+}
+
 #main-section {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -42,6 +56,7 @@ main {
 }
 
 .container {
+  max-width: 440px;
   padding: 20px;
   background-color: color('box');
   border-radius: 15px;
@@ -59,7 +74,7 @@ main {
     border-radius: 20px;
 
     &:hover {
-      background-color: hsl(203, 39%, 30%);
+      background-color: color('scroll-hover');
     }
   }
 }
